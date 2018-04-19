@@ -1,10 +1,12 @@
 import React from 'react';
+import actions from '../actions';
+import counterStore from '../stores/counterStore';
 
 class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      // Your implementation here.
+      counter: counterStore.getState()
     };
   }
   componentDidMount () {
