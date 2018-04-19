@@ -9,7 +9,7 @@ class App extends React.Component {
       counter: counterStore.getState()
     };
     this.handleIncrementClick = this.handleIncrementClick.bind(this);
-   this.handleDecrementClick = this.handleDecrementClick.bind(this);
+    this.handleDecrementClick = this.handleDecrementClick.bind(this);
   }
   componentDidMount () {
     this.removeListener = counterStore.addListener(counter => {
@@ -32,10 +32,11 @@ class App extends React.Component {
       <div className='app'>
         <h1 className='counter'>{this.state.counter}</h1>
         <div className='actions'>
-          <button className='decrement'>
+          <button className='decrement' onClick={this.handleDecrementClick}>
             -
           </button>
-          <button className='increment'>
+          <button className='increment' onClick={this.handleIncrementClick}>
+
             +
           </button>
         </div>
