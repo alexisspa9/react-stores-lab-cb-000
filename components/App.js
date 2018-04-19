@@ -12,10 +12,20 @@ class App extends React.Component {
    this.handleDecrementClick = this.handleDecrementClick.bind(this);
   }
   componentDidMount () {
-    // Your implementation here.
+    this.removeListener = counterStore.addListener(counter => {
+      this.setState({ counter });
+    });
   }
   componentWillUnmount () {
-    // Your implementation here.
+    this.removeListener();
+  }
+  handleIncrementClick (ev) {
+    ev.preventDefault()
+    actions.increment()
+  }
+  handleDecrementClick (ev) {
+    ev.preventDefault()
+    actions.decrement()
   }
   render () {
     return (
